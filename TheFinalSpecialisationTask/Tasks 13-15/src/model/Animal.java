@@ -1,19 +1,19 @@
-package Animals;
+package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class Animal {
+public abstract class Animal {
     private String name;
     private LocalDate birthday;
     private String animalClass;
     private ArrayList <String> commands;
 
 
-//    public String getName(){
-//      return name;
-//    }
+    public String getName(){
+    return name;
+    }
 
     public void setName(String name){
         this.name = name;
@@ -42,11 +42,11 @@ public class Animal {
         this.commands = new ArrayList<>();
     }
 
-    public ArrayList<String> getcCmmands() {
+    public ArrayList<String> getCommands() {
         return commands;
     }
 
-    public void setcCmmands(String command) {
+    public void setCommands(String command) {
         commands.add(command);
     }
 

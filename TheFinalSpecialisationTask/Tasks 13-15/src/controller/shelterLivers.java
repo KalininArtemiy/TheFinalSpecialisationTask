@@ -24,9 +24,12 @@ public class ShelterLivers {
 
     public void showAnimal (){
         for (Map.Entry entry: livers.entrySet()) {
+            System.out.println(" ");
             System.out.format("Index of Animal: %s \n%s \n", entry.getKey(), 
             ((Animal) entry.getValue()).AnimaltoString());
          }
-         
+    }
+    public Integer getSize(){
+        return livers.size();
     }
 }

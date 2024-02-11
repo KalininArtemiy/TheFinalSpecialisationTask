@@ -1,28 +1,32 @@
 package controller;
-
+import model.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.Animal;
-
-public class shelterLivers {
-    private Counter counter;
-    private HashMap <Integer, Animal> livers;
-
-    public shelterLivers() {
-        this.counter = new Counter();
-        this.livers = new HashMap<Integer, Animal>();
+public class ShelterLivers {
+    private static ShelterLivers shelterLivers;
+    private static HashMap <Integer, Animal> livers = new HashMap<>();
+    
+    private ShelterLivers(){
+        
     }
-
-    public void putNewAnimal(Animal animal){
-        this.livers.put(counter.getCount(), animal);
-        counter.addCount();
-    }
-
-    public void showAllLivers(){
-        for (Map.Entry entry: livers.entrySet()){
-            System.out.println();
+    
+    public static ShelterLivers getShelter(){
+        if (shelterLivers == null){
+            shelterLivers = new ShelterLivers();
         }
+        return shelterLivers;
+    }
 
+    public void addAnimal (Integer index, Animal animal){
+        livers.put(index, animal);
+    }
+
+    public void showAnimal (){
+        for (Map.Entry entry: livers.entrySet()) {
+            System.out.format("Index of Animal: %s \n%s \n", entry.getKey(), 
+            ((Animal) entry.getValue()).AnimaltoString());
+         }
+         
     }
 }

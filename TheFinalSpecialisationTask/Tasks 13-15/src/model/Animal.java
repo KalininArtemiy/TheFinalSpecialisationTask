@@ -54,10 +54,11 @@ public abstract class Animal {
         return  String.format(
                 Locale.getDefault(),
                 """
-                        Name animal: %s\s
-                        Age animal: %s\s
-                        Genus animal: %s\s
+                        Name: %s\s
+                        Age: %s\s
+                        Genus: %s\s
+                        Commands: %s\s
                         """,
-                this.name,this.birthday, this.animalClass);
+                this.name,this.birthday, this.animalClass, this.commands);
     }
 }

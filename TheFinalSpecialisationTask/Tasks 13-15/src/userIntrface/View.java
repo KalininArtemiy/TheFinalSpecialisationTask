@@ -3,12 +3,10 @@ package userIntrface;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import Exceptions.UncorrectDataException;
-
 public class View {
     
     public static String getNamefromUser(){
-        System.out.println("Enter name: ");
+        System.out.println("\nEnter name: \n");
         Scanner in =  new Scanner(System.in);
         String data = in.nextLine();
         return data;
@@ -17,23 +15,25 @@ public class View {
     public static LocalDate getBirthdayfromUser(){
         try{
             Scanner in =  new Scanner(System.in);
-            System.out.println("Enter day of birthday: ");
+            System.out.println("\nEnter day of birthday: \n");
             Integer day = in.nextInt();
-            System.out.println("Enter month of birthday: ");
+            System.out.println("\nEnter month of birthday: \n");
             Integer month = in.nextInt();
-            System.out.println("Enter year of birthday: ");
+            System.out.println("\nEnter year of birthday: \n");
             Integer year = in.nextInt();
             LocalDate birthday = LocalDate.of(year, month, day);
             return birthday;
         }
-        catch (UncorrectDataException e) {
-            System.out.println(e.getMessage());
+        catch (Exception e) {
+            System.out.println("-------------------------------------------");
+            System.out.println("Wrong date");
+            System.out.println("-------------------------------------------");
             return null;
         }
     }
     public static String ChooseAnimalClass(){
         Scanner in =  new Scanner(System.in);
-        System.out.println("Enter animal class: 1 - Pet, 2 - PackAnimal");
+        System.out.println("\nEnter animal class: 1 - Pet, 2 - PackAnimal\n");
         String key = in.nextLine();
         switch (key) {
             case "1":
@@ -41,13 +41,13 @@ public class View {
             case "2":
                 return "2";
             default:
-                System.out.println("Wrong animal class");
+                System.out.println("\nWrong animal class\n");
                 return null;
         }
     }
     public static String ChoosePetClass(){
         Scanner in =  new Scanner(System.in);
-        System.out.println("Enter Pet class: 1 - Cat, 2 - Dog, 3 - Hamster");
+        System.out.println("\nEnter Pet class: 1 - Cat, 2 - Dog, 3 - Hamster\n");
         String key = in.nextLine();
         switch (key) {
             case "1":
@@ -57,13 +57,13 @@ public class View {
             case "3":
                 return "Hamster";
             default:
-                System.out.println("Wrong Pet class");
+                System.out.println("\nWrong Pet class\n");
                 return null;
         }
     }
     public static String ChoosePackAnimalClass(){
         Scanner in =  new Scanner(System.in);
-        System.out.println("Enter PackAnimal class: 1 - Horse, 2 - Camel, 3 - Donkey");
+        System.out.println("\nEnter PackAnimal class: 1 - Horse, 2 - Camel, 3 - Donkey\n");
         String key = in.nextLine();
         switch (key) {
             case "1":
@@ -73,9 +73,24 @@ public class View {
             case "3":
                 return "Donkey";
             default:
-                System.out.println("Wrong PackAnimalClass class");
+                System.out.println("\nWrong PackAnimalClass class\n");
                 return null;
         }
     }
-    
+
+    public static Integer getById(){
+        Scanner in =  new Scanner(System.in);
+        System.out.println("Choose the animal by id\n");
+        String key = in.nextLine();
+        try {
+            Integer number = Integer.parseInt(key);
+            return number;
+        }
+        catch(Exception e){
+            System.out.println("-------------------------------------------");
+            System.out.println("Wrong index");
+            System.out.println("-------------------------------------------");
+            return 0;
+        }
+    }
 }

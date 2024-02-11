@@ -1,7 +1,3 @@
-import java.time.LocalDate;
-
-import controller.*;
-import model.*;
 import userIntrface.*;
 
 public class App {

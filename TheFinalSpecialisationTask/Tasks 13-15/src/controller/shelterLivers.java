@@ -19,7 +19,12 @@ public class ShelterLivers {
     }
 
     public void addAnimal (Integer index, Animal animal){
-        livers.put(index, animal);
+        if (animal != null){
+            livers.put(index, animal);
+        }
+        else{
+            return;
+        }
     }
 
     public void showAnimal (){
@@ -31,5 +36,9 @@ public class ShelterLivers {
     }
     public Integer getSize(){
         return livers.size();
+    }
+
+    public Animal getByIndex(Integer key){
+        return livers.get(key);
     }
 }

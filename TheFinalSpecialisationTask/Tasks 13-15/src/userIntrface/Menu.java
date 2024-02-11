@@ -7,15 +7,23 @@ import controller.ShelterLivers;
 import controller.animalCounter;
 
 public class Menu {
-    ShelterLivers livers;
-    animalCounter counter;
+    private static Menu menu;
+    private static ShelterLivers livers;
+    private static animalCounter counter;
 
-    public Menu(){
-        this.livers = ShelterLivers.getShelter();
-        this.counter = animalCounter.getCounter();
-
+    private Menu(){
     }
-    public void start(){
+
+    public static Menu getMenu(){
+        if (menu == null){
+            menu = new Menu();
+        }
+        return menu;
+    }
+
+    public static void start(){
+        livers = ShelterLivers.getShelter();
+        counter = animalCounter.getCounter();
         boolean flag = true;
         Scanner in = new Scanner(System.in);
         while (flag) {

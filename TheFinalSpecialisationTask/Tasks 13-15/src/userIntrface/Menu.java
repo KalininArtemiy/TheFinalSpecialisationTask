@@ -43,13 +43,12 @@ public class Menu {
                     else{
                         livers.addAnimal(counter.getCount(), animal);
                         counter.addCount();
+                        break;
                     }
                 }catch (Exception e) {
                     System.out.println("Wrong data");
+                    break;
                 }
-                    break;
-                default:
-                    break;
                 case "3":
                     if (livers.getSize() == 0){
                         System.out.println(" ");
@@ -61,30 +60,36 @@ public class Menu {
                     livers.showAnimal();
                     System.out.println("Choose animal you want to teach: \n");
                     Integer index = View.getById();
-                    try {
+                    if (livers.ContainsKey(index) != null) {
                         Animal teachingAnimal = livers.getByIndex(index);
-                        System.out.println("Ente command + enter to add, enter 0 to exit");
+                        System.out.println("Enter command + enter to add, enter 0 to exit");
                         boolean teaching = true;
                         Scanner teach_command = new Scanner(System.in);
-                        String command = teach_command.next();
                         while (teaching) {
+                            String command = teach_command.next();
                             switch (command) {
                                 case "0":
+                                    teaching = false;
                                     break;
                                 default:
+                                    System.out.println("Enter next command or 0 to exit: ");
                                     teachingAnimal.setCommands(command);
                             }
-
                         }
-
-                    }
-                    catch (Exception e){
+                    } 
+                    else{
                         System.out.println("No such index");
+                        break;
                     }
-                    }
-                    
-            }
-        
-        }
+                    break;    
+                }
+                case "0":
+                    flag = false;
+                    break;
+                default:
+                System.out.println("\nIncorrect index: ");
+                break;
+            }                 
+        }       
     }
-}
+ }

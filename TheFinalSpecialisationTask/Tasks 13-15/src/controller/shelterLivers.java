@@ -41,4 +41,13 @@ public class ShelterLivers {
     public Animal getByIndex(Integer key){
         return livers.get(key);
     }
+
+    public Integer ContainsKey(Integer key){
+        if (livers.containsKey(key)) {
+            return key;
+        }
+        else{
+            return null;
+        }
+    }
 }
